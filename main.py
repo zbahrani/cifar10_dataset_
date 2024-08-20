@@ -15,6 +15,7 @@ class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
 
 # print(class_names[train_label[0][0]])
 
+# Construction of convolution layers
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(32, 32, 3)))
 model.add(MaxPooling2D((2, 2)))
@@ -28,6 +29,7 @@ model.add(Dense(10))
 model.compile(optimizer='adam', 
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
+
 h = model.fit(train_image, train_label,
               epochs=10, validation_data=(test_image, test_label))
 
