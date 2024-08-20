@@ -18,7 +18,7 @@ class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
 # print(class_names[train_label[0][0]])
 
 model = Sequential()
-model.add(Conv2D(32 , kernel_size=(3, 3), activation='relu', input_shape=(32, 32, 3)))
+model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(32, 32, 3)))
 model.add(MaxPooling2D((2, 2)))
 model.add(Conv2D(64, (3, 3), activation='relu'))
 model.add(MaxPooling2D((2, 2)))
@@ -32,3 +32,19 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 h = model.fit(train_image, train_label,
               epochs=10, validation_data=(test_image, test_label))
+
+Out = model.predict(test_image)
+
+# print(Out[0])
+
+m = -1000
+o2 = Out[0]
+ind = -1
+
+for i in range(len(o2)):
+    if o2[i] > m:
+        m = o2[i]
+        ind = i
+
+
+print(class_names[ind])
