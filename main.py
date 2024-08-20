@@ -44,7 +44,10 @@ for i in range(len(o2)):
     if o2[i] > m:
         m = o2[i]
         ind = i
-    
+
+plt.close()
+plt.imshow(o2)
+plt.show()
 print(class_names[ind])
 
 # Enter a random photo for testing
