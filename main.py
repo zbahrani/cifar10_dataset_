@@ -10,9 +10,6 @@ from keras.layers import Dense, Conv2D, MaxPooling2D, Flatten
 
 # print(train_image.shape)
 
-# plt.imshow(train_image[0])
-# plt.show()
-
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
                'dog', 'frog', 'horse', 'ship', 'truck']
 
