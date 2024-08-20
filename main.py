@@ -41,18 +41,20 @@ Out = model.predict(test_image)
 m = -1000
 o2 = Out[0]
 ind = -1
-
 for i in range(len(o2)):
     if o2[i] > m:
         m = o2[i]
         ind = i
-
-
+    
 print(class_names[ind])
 
-
-img = cv2.imread('asb.jpg')
+# Enter a random photo for testing
+img = cv2.imread('horse.jpg')
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 img = cv2.resize(img, (32, 32))
-
 print(img.shape)
+
+# Show imported photo
+plt.close()
+plt.imshow(img)
+plt.show()
