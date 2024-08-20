@@ -68,6 +68,6 @@ for i in range(len(o2)):
 
 # Show imported photo and name
 plt.close()
-plt.imshow(img)
+plt.imshow(o2)
 plt.show()
 print(class_names[ind])
