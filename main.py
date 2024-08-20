@@ -1,5 +1,6 @@
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import cv2
 
 from keras.models import Sequential
 from keras import datasets
@@ -48,3 +49,10 @@ for i in range(len(o2)):
 
 
 print(class_names[ind])
+
+
+img = cv2.imread('asb.jpg')
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img = cv2.resize(img, (32, 32))
+
+print(img.shape)
