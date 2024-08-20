@@ -1,4 +1,5 @@
 import tensorflow as tf
+import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 
@@ -54,9 +55,19 @@ print(class_names[ind])
 img = cv2.imread('horse.jpg')
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 img = cv2.resize(img, (32, 32))
-print(img.shape)
+img = np.array([img])
+out2 = model.predict(img)
 
-# Show imported photo
+m = -1000
+o2 = out2
+ind = -1
+for i in range(len(o2)):
+    if o2[i] > m:
+        m = o2[i]
+        ind = i
+
+# Show imported photo and name
 plt.close()
 plt.imshow(img)
 plt.show()
+print(class_names[ind])
